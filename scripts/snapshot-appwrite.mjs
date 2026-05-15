@@ -34,6 +34,41 @@ function safeName(name) {
     .replace(/^-+|-+$/g, "") || "collection";
 }
 
+function isSensitiveKey(key) {
+  return /(^|[_-])(api[_-]?key|authorization|client[_-]?secret|password|private[_-]?key|refresh[_-]?token|secret|token)($|[_-])/i.test(
+    String(key),
+  );
+}
+
+function redactString(value) {
+  return value
+    .replace(/sk-[A-Za-z0-9_-]{20,}/g, "[REDACTED_OPENAI_KEY]")
+    .replace(/xapp-[A-Za-z0-9_-]{20,}/g, "[REDACTED_APPWRITE_KEY]")
+    .replace(/Bearer\s+[A-Za-z0-9._-]{20,}/gi, "Bearer [REDACTED_TOKEN]");
+}
+
+function redactSecrets(value, key = "") {
+  if (isSensitiveKey(key)) {
+    return "[REDACTED]";
+  }
+
+  if (typeof value === "string") {
+    return redactString(value);
+  }
+
+  if (Array.isArray(value)) {
+    return value.map((item) => redactSecrets(item));
+  }
+
+  if (value && typeof value === "object") {
+    return Object.fromEntries(
+      Object.entries(value).map(([entryKey, entryValue]) => [entryKey, redactSecrets(entryValue, entryKey)]),
+    );
+  }
+
+  return value;
+}
+
 function queryParam(value) {
   return `queries[]=${encodeURIComponent(JSON.stringify(value))}`;
 }
@@ -141,11 +176,11 @@ async function main() {
       updatedAt: collection.$updatedAt,
     };
 
-    const snapshot = {
+    const snapshot = redactSecrets({
       ...collectionSummary,
       attributes: collection.attributes || [],
       documents,
-    };
+    });
 
     const fileBase = `${safeName(collection.name)}-${collection.$id}`;
     await writeJson(path.join(latestDir, "collections", `${fileBase}.json`), snapshot);
