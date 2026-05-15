@@ -35,7 +35,7 @@ function safeName(name) {
 }
 
 function queryParam(value) {
-  return `queries[]=${encodeURIComponent(value)}`;
+  return `queries[]=${encodeURIComponent(JSON.stringify(value))}`;
 }
 
 async function appwriteGet(route, queries = []) {
