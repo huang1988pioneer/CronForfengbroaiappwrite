@@ -57,9 +57,9 @@ async function listAllCollections() {
   let cursorAfter = null;
 
   while (true) {
-    const queries = [`limit(${pageSize})`];
+    const queries = [{ method: "limit", values: [pageSize] }];
     if (cursorAfter) {
-      queries.push(`cursorAfter("${cursorAfter}")`);
+      queries.push({ method: "cursorAfter", values: [cursorAfter] });
     }
 
     const page = await appwriteGet(`/databases/${config.databaseId}/collections`, queries);
@@ -80,9 +80,9 @@ async function listAllDocuments(collectionId) {
   let cursorAfter = null;
 
   while (true) {
-    const queries = [`limit(${pageSize})`];
+    const queries = [{ method: "limit", values: [pageSize] }];
     if (cursorAfter) {
-      queries.push(`cursorAfter("${cursorAfter}")`);
+      queries.push({ method: "cursorAfter", values: [cursorAfter] });
     }
 
     const page = await appwriteGet(
