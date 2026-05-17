@@ -1,0 +1,132 @@
+{
+  "id": "6a073ad60001c2b7ed2b",
+  "name": "image",
+  "documentCount": 1,
+  "fetchedCount": 1,
+  "attributeCount": 8,
+  "createdAt": "2026-05-15T15:25:10.168+00:00",
+  "updatedAt": "2026-05-15T15:25:10.168+00:00",
+  "attributes": [
+    {
+      "key": "name",
+      "type": "string",
+      "status": "available",
+      "error": "",
+      "required": true,
+      "array": false,
+      "$createdAt": "2026-05-15T15:25:10.582+00:00",
+      "$updatedAt": "2026-05-15T15:25:10.788+00:00",
+      "size": 100,
+      "default": null,
+      "encrypt": false
+    },
+    {
+      "key": "file",
+      "type": "string",
+      "status": "available",
+      "error": "",
+      "required": false,
+      "array": false,
+      "$createdAt": "2026-05-15T15:25:11.061+00:00",
+      "$updatedAt": "2026-05-15T15:25:11.264+00:00",
+      "size": 500,
+      "default": null,
+      "encrypt": false
+    },
+    {
+      "key": "filetype",
+      "type": "string",
+      "status": "available",
+      "error": "",
+      "required": false,
+      "array": false,
+      "$createdAt": "2026-05-15T15:25:11.541+00:00",
+      "$updatedAt": "2026-05-15T15:25:11.805+00:00",
+      "size": 20,
+      "default": null,
+      "encrypt": false
+    },
+    {
+      "key": "note",
+      "type": "string",
+      "status": "available",
+      "error": "",
+      "required": false,
+      "array": false,
+      "$createdAt": "2026-05-15T15:25:12.030+00:00",
+      "$updatedAt": "2026-05-15T15:25:12.292+00:00",
+      "size": 500,
+      "default": null,
+      "encrypt": false
+    },
+    {
+      "key": "ref",
+      "type": "string",
+      "status": "available",
+      "error": "",
+      "required": false,
+      "array": false,
+      "$createdAt": "2026-05-15T15:25:12.501+00:00",
+      "$updatedAt": "2026-05-15T15:25:12.730+00:00",
+      "size": 300,
+      "default": null,
+      "encrypt": false
+    },
+    {
+      "key": "category",
+      "type": "string",
+      "status": "available",
+      "error": "",
+      "required": false,
+      "array": false,
+      "$createdAt": "2026-05-15T15:25:12.972+00:00",
+      "$updatedAt": "2026-05-15T15:25:13.161+00:00",
+      "size": 100,
+      "default": null,
+      "encrypt": false
+    },
+    {
+      "key": "hash",
+      "type": "string",
+      "status": "available",
+      "error": "",
+      "required": false,
+      "array": false,
+      "$createdAt": "2026-05-15T15:25:13.443+00:00",
+      "$updatedAt": "2026-05-15T15:25:13.641+00:00",
+      "size": 300,
+      "default": null,
+      "encrypt": false
+    },
+    {
+      "key": "cover",
+      "type": "boolean",
+      "status": "available",
+      "error": "",
+      "required": false,
+      "array": false,
+      "$createdAt": "2026-05-15T15:25:13.910+00:00",
+      "$updatedAt": "2026-05-15T15:25:14.128+00:00",
+      "default": false
+    }
+  ],
+  "documents": [
+    {
+      "name": "20260515-93",
+      "file": "https://sgp.cloud.appwrite.io/v1/storage/buckets/6a073a1f0008fbd2cf30/files/6a0752dc000098857c0c/view?project=6a0727af003994657b32",
+      "filetype": "jpg",
+      "note": "",
+      "ref": "",
+      "category": "",
+      "hash": "3a321facd2a2cd10e40defa0742bb7459a5f8c04803d7bb08aa8ed4708dbb0ac",
+      "cover": false,
+      "$id": "6a0752dd0034991fb447",
+      "$sequence": "1",
+      "$createdAt": "2026-05-15T17:07:41.988+00:00",
+      "$updatedAt": "2026-05-15T17:07:41.988+00:00",
+      "$permissions": [],
+      "$databaseId": "6a073a0e0036f14c941f",
+      "$collectionId": "6a073ad60001c2b7ed2b"
+    }
+  ]
+}
