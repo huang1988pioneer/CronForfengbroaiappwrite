@@ -37,6 +37,7 @@ jobs:
           NEXT_PUBLIC_APPWRITE_DATABASE_ID: ${{ secrets.NEXT_PUBLIC_APPWRITE_DATABASE_ID }}
           NEXT_PUBLIC_APPWRITE_API_KEY: ${{ secrets.NEXT_PUBLIC_APPWRITE_API_KEY }}
           APPWRITE_SNAPSHOT_HISTORY: full
+          APPWRITE_HISTORY_RETENTION_DAYS: 30
         run: npm run snapshot
 
       - name: Commit snapshot

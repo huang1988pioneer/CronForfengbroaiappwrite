@@ -1,8 +1,13 @@
-import { mkdir, rm, writeFile } from "node:fs/promises";
+import { mkdir, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const pageSize = Number.parseInt(process.env.APPWRITE_PAGE_SIZE || "100", 10);
 const historyMode = (process.env.APPWRITE_SNAPSHOT_HISTORY || "full").toLowerCase();
+const historyRetentionDays = Number.parseInt(process.env.APPWRITE_HISTORY_RETENTION_DAYS || "30", 10);
+
+if (!Number.isInteger(historyRetentionDays) || historyRetentionDays < 1) {
+  throw new Error("APPWRITE_HISTORY_RETENTION_DAYS must be a positive integer.");
+}
 
 function requireEnv(primary, fallback) {
   const value = process.env[primary] || (fallback ? process.env[fallback] : undefined);
@@ -143,10 +148,66 @@ async function writeJson(filePath, data) {
   await rm(`${filePath}.tmp`, { force: true });
 }
 
+function utcDateOnly(date) {
+  return Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
+}
+
+function parseHistoryDate(name) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(name)) {
+    return null;
+  }
+
+  const [year, month, day] = name.split("-").map(Number);
+  const timestamp = Date.UTC(year, month - 1, day);
+  const parsed = new Date(timestamp);
+
+  if (
+    parsed.getUTCFullYear() !== year ||
+    parsed.getUTCMonth() !== month - 1 ||
+    parsed.getUTCDate() !== day
+  ) {
+    return null;
+  }
+
+  return timestamp;
+}
+
+async function pruneOldHistory(historyRoot, now) {
+  const cutoff = utcDateOnly(now) - (historyRetentionDays - 1) * 24 * 60 * 60 * 1000;
+
+  let entries = [];
+  try {
+    entries = await readdir(historyRoot, { withFileTypes: true });
+  } catch (error) {
+    if (error.code === "ENOENT") {
+      return [];
+    }
+    throw error;
+  }
+
+  const removed = [];
+  for (const entry of entries) {
+    if (!entry.isDirectory()) {
+      continue;
+    }
+
+    const historyDate = parseHistoryDate(entry.name);
+    if (historyDate === null || historyDate >= cutoff) {
+      continue;
+    }
+
+    await rm(path.join(historyRoot, entry.name), { recursive: true, force: true });
+    removed.push(entry.name);
+  }
+
+  return removed;
+}
+
 async function main() {
   const startedAt = new Date();
   const runId = startedAt.toISOString().replace(/[:.]/g, "-");
-  const historyDir = path.join("data", "history", runId.slice(0, 10), runId);
+  const historyRoot = path.join("data", "history");
+  const historyDir = path.join(historyRoot, runId.slice(0, 10), runId);
   const latestDir = path.join("data", "latest");
 
   await rm(latestDir, { recursive: true, force: true });
@@ -161,6 +222,7 @@ async function main() {
     totalCollections: collections.length,
     totalDocuments: 0,
     historyMode,
+    historyRetentionDays,
     collections: [],
   };
 
@@ -198,6 +260,11 @@ async function main() {
 
   await writeJson(path.join(latestDir, "summary.json"), summary);
   await writeJson(path.join(historyDir, "summary.json"), summary);
+
+  const removedHistoryDates = await pruneOldHistory(historyRoot, startedAt);
+  if (removedHistoryDates.length) {
+    console.log(`Pruned history older than ${historyRetentionDays} days: ${removedHistoryDates.join(", ")}`);
+  }
 
   console.log(`Snapshot complete: ${summary.totalCollections} collections, ${summary.totalDocuments} documents`);
 }

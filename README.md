@@ -25,12 +25,18 @@ The workflow also supports the variable names used by `fengbroaiappwrite`:
 - `NEXT_PUBLIC_APPWRITE_DATABASE_ID`
 - `NEXT_PUBLIC_APPWRITE_API_KEY`
 
+Optional:
+
+- `APPWRITE_HISTORY_RETENTION_DAYS`: number of days to keep under `data/history`, defaults to `30`.
+
 ## Output
 
 - `data/latest/summary.json`: latest summary.
 - `data/latest/collections/*.json`: latest collection snapshots.
 - `data/history/<date>/<run-id>/summary.json`: summary for each run.
 - `data/history/<date>/<run-id>/collections/*.json`: full collection snapshots for each run.
+
+History is pruned automatically after each successful snapshot so only the most recent 30 days are kept.
 
 ## Run Locally
 
