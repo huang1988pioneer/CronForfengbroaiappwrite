@@ -1,17 +1,18 @@
 {
-  "generatedAt": "2026-05-21T00:19:05.284Z",
+  "generatedAt": "2026-06-20T04:49:58.281Z",
   "endpoint": "https://sgp.cloud.appwrite.io/v1",
   "projectId": "6a0727af003994657b32",
   "databaseId": "6a073a0e0036f14c941f",
   "totalCollections": 12,
-  "totalDocuments": 432,
+  "totalDocuments": 506,
   "historyMode": "full",
+  "historyRetentionDays": 30,
   "collections": [
     {
       "id": "6a073a80002db3cc1bf5",
       "name": "article",
-      "documentCount": 135,
-      "fetchedCount": 135,
+      "documentCount": 136,
+      "fetchedCount": 136,
       "attributeCount": 17,
       "createdAt": "2026-05-15T15:23:44.870+00:00",
       "updatedAt": "2026-05-15T15:23:44.870+00:00"
@@ -46,8 +47,8 @@
     {
       "id": "6a073acf003b6eb13a13",
       "name": "food",
-      "documentCount": 21,
-      "fetchedCount": 21,
+      "documentCount": 20,
+      "fetchedCount": 20,
       "attributeCount": 7,
       "createdAt": "2026-05-15T15:25:04.097+00:00",
       "updatedAt": "2026-05-15T15:25:04.097+00:00"
@@ -55,8 +56,8 @@
     {
       "id": "6a073ad60001c2b7ed2b",
       "name": "image",
-      "documentCount": 1,
-      "fetchedCount": 1,
+      "documentCount": 51,
+      "fetchedCount": 51,
       "attributeCount": 8,
       "createdAt": "2026-05-15T15:25:10.168+00:00",
       "updatedAt": "2026-05-15T15:25:10.168+00:00"
@@ -73,8 +74,8 @@
     {
       "id": "6a073adb003e3068dd35",
       "name": "music",
-      "documentCount": 12,
-      "fetchedCount": 12,
+      "documentCount": 73,
+      "fetchedCount": 73,
       "attributeCount": 10,
       "createdAt": "2026-05-15T15:25:16.124+00:00",
       "updatedAt": "2026-05-15T15:25:16.124+00:00"
@@ -100,8 +101,8 @@
     {
       "id": "6a073af4003d3e12cb95",
       "name": "subscription",
-      "documentCount": 41,
-      "fetchedCount": 41,
+      "documentCount": 4,
+      "fetchedCount": 4,
       "attributeCount": 15,
       "createdAt": "2026-05-15T15:25:41.115+00:00",
       "updatedAt": "2026-05-15T15:25:41.115+00:00"
