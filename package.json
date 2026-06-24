@@ -5,7 +5,8 @@
   "type": "module",
   "description": "Hourly Appwrite database snapshot recorder for fengbroaiappwrite.",
   "scripts": {
-    "snapshot": "node scripts/snapshot-appwrite.mjs"
+    "snapshot": "node scripts/snapshot-appwrite.mjs",
+    "routine:cron": "node scripts/toggle-routine-cron.mjs"
   },
   "engines": {
     "node": ">=20"

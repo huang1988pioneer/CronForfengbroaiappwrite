@@ -49,3 +49,12 @@ The GitHub Actions schedule is defined in `.github/workflows/appwrite-snapshot.y
 ```yaml
 cron: "33 * * * *"
 ```
+
+## CronAppwrite Routine Toggle
+
+`.github/workflows/routine-cronappwrite.yml` updates the Appwrite `routine` collection at minute 33:
+
+- odd hours: add one `CronAppwrite` routine document
+- even hours: remove one `CronAppwrite` routine document
+
+The schedule is UTC, and Taiwan time has the same odd/even hour parity because it is UTC+8.

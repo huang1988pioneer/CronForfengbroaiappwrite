@@ -1,0 +1,52 @@
+name: Toggle CronAppwrite routine
+
+on:
+  schedule:
+    - cron: "33 1-23/2 * * *"
+    - cron: "33 0-22/2 * * *"
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "add or remove CronAppwrite"
+        required: true
+        default: "add"
+        type: choice
+        options:
+          - add
+          - remove
+
+permissions:
+  contents: read
+
+concurrency:
+  group: toggle-cronappwrite-routine
+  cancel-in-progress: false
+
+jobs:
+  toggle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Toggle CronAppwrite routine
+        env:
+          APPWRITE_ENDPOINT: ${{ secrets.APPWRITE_ENDPOINT }}
+          APPWRITE_PROJECT_ID: ${{ secrets.APPWRITE_PROJECT_ID }}
+          APPWRITE_DATABASE_ID: ${{ secrets.APPWRITE_DATABASE_ID }}
+          APPWRITE_API_KEY: ${{ secrets.APPWRITE_API_KEY }}
+          NEXT_PUBLIC_APPWRITE_ENDPOINT: ${{ secrets.NEXT_PUBLIC_APPWRITE_ENDPOINT }}
+          NEXT_PUBLIC_APPWRITE_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_APPWRITE_PROJECT_ID }}
+          NEXT_PUBLIC_APPWRITE_DATABASE_ID: ${{ secrets.NEXT_PUBLIC_APPWRITE_DATABASE_ID }}
+          NEXT_PUBLIC_APPWRITE_API_KEY: ${{ secrets.NEXT_PUBLIC_APPWRITE_API_KEY }}
+          ROUTINE_CRON_ACTION: ${{ github.event.inputs.action || (github.event.schedule == '33 1-23/2 * * *' && 'add' || 'remove') }}
+          APPWRITE_ROUTINE_NAME: CronAppwrite
+          APPWRITE_ROUTINE_COLLECTION_NAME: routine
+        run: npm run routine:cron
