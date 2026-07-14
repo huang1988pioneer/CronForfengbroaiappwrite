@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-07-13T23:25:06.245Z",
+  "generatedAt": "2026-07-14T00:51:28.033Z",
   "endpoint": "https://sgp.cloud.appwrite.io/v1",
   "projectId": "6a0727af003994657b32",
   "databaseId": "6a073a0e0036f14c941f",
   "totalCollections": 12,
-  "totalDocuments": 511,
+  "totalDocuments": 510,
   "historyMode": "full",
   "historyRetentionDays": 30,
   "collections": [
@@ -92,8 +92,8 @@
     {
       "id": "6a073aef0001916ee30a",
       "name": "routine",
-      "documentCount": 30,
-      "fetchedCount": 30,
+      "documentCount": 29,
+      "fetchedCount": 29,
       "attributeCount": 7,
       "createdAt": "2026-05-15T15:25:35.156+00:00",
       "updatedAt": "2026-05-15T15:25:35.156+00:00"
