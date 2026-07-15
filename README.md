@@ -50,11 +50,22 @@ The GitHub Actions schedule is defined in `.github/workflows/appwrite-snapshot.y
 cron: "33 * * * *"
 ```
 
-## CronAppwrite Routine Toggle
+## 鋒兄例行 Routine
 
-`.github/workflows/routine-cronappwrite.yml` updates the Appwrite `routine` collection at minute 33:
+`.github/workflows/routine-cronappwrite.yml` updates the Appwrite `routine` collection three times a day (Taiwan time, UTC+8):
 
-- odd hours: add one `CronAppwrite` routine document
-- even hours: remove one `CronAppwrite` routine document
+| Taiwan time | UTC cron | Action |
+|-------------|----------|--------|
+| 上午 09:33 | `33 1 * * *` | add one random `鋒兄例行` document |
+| 下午 15:33 | `33 7 * * *` | add one random `鋒兄例行` document |
+| 晚上 21:33 | `33 13 * * *` | delete one random `鋒兄例行` document |
 
-The schedule is UTC, and Taiwan time has the same odd/even hour parity because it is UTC+8.
+Each add writes `name=鋒兄例行`, a random `note` (token + timestamp, max 100 chars), and `lastdate1=now`.  
+Each remove picks one matching `鋒兄例行` document at random.
+
+Manual run:
+
+```bash
+ROUTINE_CRON_ACTION=add npm run routine:cron
+ROUTINE_CRON_ACTION=remove npm run routine:cron
+```

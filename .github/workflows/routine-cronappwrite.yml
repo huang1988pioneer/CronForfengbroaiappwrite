@@ -1,13 +1,17 @@
-name: Toggle CronAppwrite routine
+name: 鋒兄例行 routine
 
 on:
   schedule:
-    - cron: "33 1-23/2 * * *"
-    - cron: "33 0-22/2 * * *"
+    # Taiwan (UTC+8): 上午 09:33 add
+    - cron: "33 1 * * *"
+    # Taiwan (UTC+8): 下午 15:33 add
+    - cron: "33 7 * * *"
+    # Taiwan (UTC+8): 晚上 21:33 remove
+    - cron: "33 13 * * *"
   workflow_dispatch:
     inputs:
       action:
-        description: "add or remove CronAppwrite"
+        description: "add or remove 鋒兄例行"
         required: true
         default: "add"
         type: choice
@@ -19,7 +23,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: toggle-cronappwrite-routine
+  group: feng-routine-cron
   cancel-in-progress: false
 
 jobs:
@@ -36,7 +40,7 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Toggle CronAppwrite routine
+      - name: Toggle 鋒兄例行 routine
         env:
           APPWRITE_ENDPOINT: ${{ secrets.APPWRITE_ENDPOINT }}
           APPWRITE_PROJECT_ID: ${{ secrets.APPWRITE_PROJECT_ID }}
@@ -46,7 +50,8 @@ jobs:
           NEXT_PUBLIC_APPWRITE_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_APPWRITE_PROJECT_ID }}
           NEXT_PUBLIC_APPWRITE_DATABASE_ID: ${{ secrets.NEXT_PUBLIC_APPWRITE_DATABASE_ID }}
           NEXT_PUBLIC_APPWRITE_API_KEY: ${{ secrets.NEXT_PUBLIC_APPWRITE_API_KEY }}
-          ROUTINE_CRON_ACTION: ${{ github.event.inputs.action || (github.event.schedule == '33 1-23/2 * * *' && 'add' || 'remove') }}
-          APPWRITE_ROUTINE_NAME: CronAppwrite
+          # Evening schedule removes one random row; morning/afternoon add one random row.
+          ROUTINE_CRON_ACTION: ${{ github.event.inputs.action || (github.event.schedule == '33 13 * * *' && 'remove' || 'add') }}
+          APPWRITE_ROUTINE_NAME: 鋒兄例行
           APPWRITE_ROUTINE_COLLECTION_NAME: routine
         run: npm run routine:cron

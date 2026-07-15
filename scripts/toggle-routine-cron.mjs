@@ -1,8 +1,11 @@
+import { randomBytes, randomInt } from "node:crypto";
+
 const pageSize = Number.parseInt(process.env.APPWRITE_PAGE_SIZE || "100", 10);
-const routineName = process.env.APPWRITE_ROUTINE_NAME || "CronAppwrite";
+const routineName = process.env.APPWRITE_ROUTINE_NAME || "鋒兄例行";
 const routineCollectionName = process.env.APPWRITE_ROUTINE_COLLECTION_NAME || "routine";
 const routineCollectionId = process.env.APPWRITE_ROUTINE_COLLECTION_ID || "";
 const action = (process.env.ROUTINE_CRON_ACTION || "").toLowerCase();
+const noteMaxLength = Number.parseInt(process.env.APPWRITE_ROUTINE_NOTE_MAX || "100", 10);
 
 if (!["add", "remove"].includes(action)) {
   throw new Error("ROUTINE_CRON_ACTION must be add or remove.");
@@ -35,6 +38,16 @@ function headers(extra = {}) {
 
 function queryParam(value) {
   return `queries[]=${encodeURIComponent(JSON.stringify(value))}`;
+}
+
+function buildRandomNote() {
+  const now = new Date();
+  const token = randomBytes(3).toString("hex");
+  const roll = randomInt(1000, 10000);
+  const periods = ["上午", "下午", "晚上", "例行"];
+  const period = periods[randomInt(0, periods.length)];
+  const note = `${period}隨機#${token} r${roll} ${now.toISOString()}`;
+  return note.slice(0, noteMaxLength);
 }
 
 async function appwriteRequest(route, options = {}) {
@@ -118,7 +131,8 @@ async function listAllDocuments(collectionId) {
 }
 
 async function addRoutine(collectionId) {
-  const now = new Date().toISOString();
+  const now = new Date();
+  const note = buildRandomNote();
   const document = await appwriteRequest(
     `/databases/${config.databaseId}/collections/${collectionId}/documents`,
     {
@@ -127,33 +141,36 @@ async function addRoutine(collectionId) {
         documentId: "unique()",
         data: {
           name: routineName,
-          note: `Created by CronForfengbroaiappwrite at ${now}`,
+          note,
+          lastdate1: now.toISOString(),
         },
       }),
     },
   );
 
   console.log(`Added ${routineName} routine document: ${document.$id}`);
+  console.log(`note=${note}`);
 }
 
 async function removeRoutine(collectionId) {
   const documents = await listAllDocuments(collectionId);
-  const matches = documents
-    .filter((document) => document.name === routineName)
-    .sort((a, b) => String(a.$createdAt || "").localeCompare(String(b.$createdAt || "")));
+  const matches = documents.filter((document) => document.name === routineName);
 
   if (!matches.length) {
     console.log(`No ${routineName} routine document found; nothing to remove.`);
     return;
   }
 
-  const target = matches[0];
+  const target = matches[randomInt(0, matches.length)];
   await appwriteRequest(
     `/databases/${config.databaseId}/collections/${collectionId}/documents/${target.$id}`,
     { method: "DELETE" },
   );
 
-  console.log(`Removed ${routineName} routine document: ${target.$id}`);
+  console.log(`Removed random ${routineName} routine document: ${target.$id}`);
+  if (target.note) {
+    console.log(`note=${target.note}`);
+  }
 }
 
 const collectionId = await resolveRoutineCollectionId();
