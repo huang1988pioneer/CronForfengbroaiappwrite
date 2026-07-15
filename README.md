@@ -50,22 +50,40 @@ The GitHub Actions schedule is defined in `.github/workflows/appwrite-snapshot.y
 cron: "33 * * * *"
 ```
 
-## 鋒兄例行 Routine
+## CronAppwrite table (standalone collection)
 
-`.github/workflows/routine-cronappwrite.yml` updates the Appwrite `routine` collection three times a day (Taiwan time, UTC+8):
+`.github/workflows/routine-cronappwrite.yml` uses a **dedicated Appwrite collection** named `CronAppwrite` (not the `routine` table).
+
+Schema:
+
+| Attribute | Type | Notes |
+|-----------|------|--------|
+| `period` | string(32) | `上午` / `下午` / `晚上` / `manual` |
+| `note` | string(255) | random note + timestamp |
+| `token` | string(64) | random hex token |
+| `source` | string(64) | default `CronForfengbroaiappwrite` |
+
+Schedule (Taiwan time, UTC+8):
 
 | Taiwan time | UTC cron | Action |
 |-------------|----------|--------|
-| 上午 09:33 | `33 1 * * *` | add one random `鋒兄例行` document |
-| 下午 15:33 | `33 7 * * *` | add one random `鋒兄例行` document |
-| 晚上 21:33 | `33 13 * * *` | delete one random `鋒兄例行` document |
+| 上午 09:33 | `33 1 * * *` | add one random row |
+| 下午 15:33 | `33 7 * * *` | add one random row |
+| 晚上 21:33 | `33 13 * * *` | delete one random row |
 
-Each add writes `name=鋒兄例行`, a random `note` (token + timestamp, max 100 chars), and `lastdate1=now`.  
-Each remove picks one matching `鋒兄例行` document at random.
+The workflow first runs `npm run cronappwrite:ensure` (creates collection + attributes if missing), then add/remove.
 
 Manual run:
 
 ```bash
-ROUTINE_CRON_ACTION=add npm run routine:cron
-ROUTINE_CRON_ACTION=remove npm run routine:cron
+npm run cronappwrite:ensure
+ROUTINE_CRON_ACTION=add APPWRITE_CRON_PERIOD=上午 npm run cronappwrite:cron
+ROUTINE_CRON_ACTION=remove npm run cronappwrite:cron
 ```
+
+Legacy helper that still targets the `routine` collection:
+
+```bash
+ROUTINE_CRON_ACTION=add npm run routine:cron
+```
+

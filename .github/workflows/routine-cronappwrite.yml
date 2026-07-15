@@ -1,4 +1,4 @@
-name: 鋒兄例行 routine
+name: CronAppwrite table
 
 on:
   schedule:
@@ -11,25 +11,35 @@ on:
   workflow_dispatch:
     inputs:
       action:
-        description: "add or remove 鋒兄例行"
+        description: "add or remove row on CronAppwrite table"
         required: true
         default: "add"
         type: choice
         options:
           - add
           - remove
+      period:
+        description: "period label for add (ignored on remove)"
+        required: false
+        default: "manual"
+        type: choice
+        options:
+          - manual
+          - 上午
+          - 下午
+          - 晚上
 
 permissions:
   contents: read
 
 concurrency:
-  group: feng-routine-cron
+  group: cronappwrite-table
   cancel-in-progress: false
 
 jobs:
   toggle:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     steps:
       - name: Checkout repository
@@ -40,7 +50,20 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Toggle 鋒兄例行 routine
+      - name: Ensure CronAppwrite collection
+        env:
+          APPWRITE_ENDPOINT: ${{ secrets.APPWRITE_ENDPOINT }}
+          APPWRITE_PROJECT_ID: ${{ secrets.APPWRITE_PROJECT_ID }}
+          APPWRITE_DATABASE_ID: ${{ secrets.APPWRITE_DATABASE_ID }}
+          APPWRITE_API_KEY: ${{ secrets.APPWRITE_API_KEY }}
+          NEXT_PUBLIC_APPWRITE_ENDPOINT: ${{ secrets.NEXT_PUBLIC_APPWRITE_ENDPOINT }}
+          NEXT_PUBLIC_APPWRITE_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_APPWRITE_PROJECT_ID }}
+          NEXT_PUBLIC_APPWRITE_DATABASE_ID: ${{ secrets.NEXT_PUBLIC_APPWRITE_DATABASE_ID }}
+          NEXT_PUBLIC_APPWRITE_API_KEY: ${{ secrets.NEXT_PUBLIC_APPWRITE_API_KEY }}
+          APPWRITE_CRON_COLLECTION_NAME: CronAppwrite
+        run: npm run cronappwrite:ensure
+
+      - name: Toggle CronAppwrite table row
         env:
           APPWRITE_ENDPOINT: ${{ secrets.APPWRITE_ENDPOINT }}
           APPWRITE_PROJECT_ID: ${{ secrets.APPWRITE_PROJECT_ID }}
@@ -52,6 +75,8 @@ jobs:
           NEXT_PUBLIC_APPWRITE_API_KEY: ${{ secrets.NEXT_PUBLIC_APPWRITE_API_KEY }}
           # Evening schedule removes one random row; morning/afternoon add one random row.
           ROUTINE_CRON_ACTION: ${{ github.event.inputs.action || (github.event.schedule == '33 13 * * *' && 'remove' || 'add') }}
-          APPWRITE_ROUTINE_NAME: 鋒兄例行
-          APPWRITE_ROUTINE_COLLECTION_NAME: routine
-        run: npm run routine:cron
+          APPWRITE_CRON_PERIOD: ${{ github.event.inputs.period || (github.event.schedule == '33 1 * * *' && '上午' || (github.event.schedule == '33 7 * * *' && '下午' || (github.event.schedule == '33 13 * * *' && '晚上' || 'manual'))) }}
+          APPWRITE_CRON_COLLECTION_NAME: CronAppwrite
+          # ensure already ran in previous step
+          APPWRITE_CRON_AUTO_ENSURE: "0"
+        run: npm run cronappwrite:cron
