@@ -17,7 +17,6 @@ const pageSize = Number.parseInt(process.env.APPWRITE_PAGE_SIZE || "100", 10);
 const collectionName = process.env.APPWRITE_CRON_COLLECTION_NAME || "CronAppwrite";
 const collectionIdEnv = process.env.APPWRITE_CRON_COLLECTION_ID || "";
 const action = (process.env.ROUTINE_CRON_ACTION || "").toLowerCase();
-const periodLabel = process.env.APPWRITE_CRON_PERIOD || "manual";
 const noteMaxLength = Number.parseInt(process.env.APPWRITE_CRON_NOTE_MAX || "255", 10);
 const autoEnsure = (process.env.APPWRITE_CRON_AUTO_ENSURE || "1") !== "0";
 const sourceLabel = process.env.APPWRITE_CRON_SOURCE || "CronForfengbroaiappwrite";
@@ -25,6 +24,43 @@ const sourceLabel = process.env.APPWRITE_CRON_SOURCE || "CronForfengbroaiappwrit
 if (!["add", "remove"].includes(action)) {
   throw new Error("ROUTINE_CRON_ACTION must be add or remove.");
 }
+
+/** Resolve period label in this file (UTF-8) to avoid YAML/env encoding issues. */
+function resolvePeriodLabel() {
+  const raw = (process.env.APPWRITE_CRON_PERIOD || "").trim();
+  const schedule = (process.env.APPWRITE_CRON_SCHEDULE || "").trim();
+
+  const aliases = {
+    morning: "上午",
+    afternoon: "下午",
+    evening: "晚上",
+    上午: "上午",
+    下午: "下午",
+    晚上: "晚上",
+    manual: "manual",
+  };
+
+  if (raw && aliases[raw]) {
+    return aliases[raw];
+  }
+  if (raw) {
+    return raw.slice(0, 32);
+  }
+
+  if (schedule === "33 1 * * *") {
+    return "上午";
+  }
+  if (schedule === "33 7 * * *") {
+    return "下午";
+  }
+  if (schedule === "33 13 * * *") {
+    return "晚上";
+  }
+
+  return "manual";
+}
+
+const periodLabel = resolvePeriodLabel();
 
 function requireEnv(primary, fallback) {
   const value = process.env[primary] || (fallback ? process.env[fallback] : undefined);

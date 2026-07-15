@@ -2,11 +2,11 @@ name: CronAppwrite table
 
 on:
   schedule:
-    # Taiwan (UTC+8): 上午 09:33 add
+    # Taiwan (UTC+8): morning 09:33 add
     - cron: "33 1 * * *"
-    # Taiwan (UTC+8): 下午 15:33 add
+    # Taiwan (UTC+8): afternoon 15:33 add
     - cron: "33 7 * * *"
-    # Taiwan (UTC+8): 晚上 21:33 remove
+    # Taiwan (UTC+8): evening 21:33 remove
     - cron: "33 13 * * *"
   workflow_dispatch:
     inputs:
@@ -25,9 +25,9 @@ on:
         type: choice
         options:
           - manual
-          - 上午
-          - 下午
-          - 晚上
+          - morning
+          - afternoon
+          - evening
 
 permissions:
   contents: read
@@ -75,7 +75,8 @@ jobs:
           NEXT_PUBLIC_APPWRITE_API_KEY: ${{ secrets.NEXT_PUBLIC_APPWRITE_API_KEY }}
           # Evening schedule removes one random row; morning/afternoon add one random row.
           ROUTINE_CRON_ACTION: ${{ github.event.inputs.action || (github.event.schedule == '33 13 * * *' && 'remove' || 'add') }}
-          APPWRITE_CRON_PERIOD: ${{ github.event.inputs.period || (github.event.schedule == '33 1 * * *' && '上午' || (github.event.schedule == '33 7 * * *' && '下午' || (github.event.schedule == '33 13 * * *' && '晚上' || 'manual'))) }}
+          APPWRITE_CRON_SCHEDULE: ${{ github.event.schedule || '' }}
+          APPWRITE_CRON_PERIOD: ${{ github.event.inputs.period || '' }}
           APPWRITE_CRON_COLLECTION_NAME: CronAppwrite
           # ensure already ran in previous step
           APPWRITE_CRON_AUTO_ENSURE: "0"

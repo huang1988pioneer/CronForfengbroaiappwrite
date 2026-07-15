@@ -58,7 +58,7 @@ Schema:
 
 | Attribute | Type | Notes |
 |-----------|------|--------|
-| `period` | string(32) | `上午` / `下午` / `晚上` / `manual` |
+| `period` | string(32) | `上午` / `下午` / `晚上` / `manual` (mapped from schedule or workflow input) |
 | `note` | string(255) | random note + timestamp |
 | `token` | string(64) | random hex token |
 | `source` | string(64) | default `CronForfengbroaiappwrite` |
