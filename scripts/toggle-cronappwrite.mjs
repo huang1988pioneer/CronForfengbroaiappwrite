@@ -25,36 +25,46 @@ if (!["add", "remove"].includes(action)) {
   throw new Error("ROUTINE_CRON_ACTION must be add or remove.");
 }
 
-/** Resolve period label in this file (UTF-8) to avoid YAML/env encoding issues. */
+// Use Unicode escapes so labels stay correct regardless of source-file encoding.
+const PERIOD_MORNING = "\u4e0a\u5348"; // 上午
+const PERIOD_AFTERNOON = "\u4e0b\u5348"; // 下午
+const PERIOD_EVENING = "\u665a\u4e0a"; // 晚上
+
+/** Resolve period label without relying on non-ASCII env/YAML bytes. */
 function resolvePeriodLabel() {
-  const raw = (process.env.APPWRITE_CRON_PERIOD || "").trim();
+  const raw = (process.env.APPWRITE_CRON_PERIOD || "").trim().toLowerCase();
   const schedule = (process.env.APPWRITE_CRON_SCHEDULE || "").trim();
 
   const aliases = {
-    morning: "上午",
-    afternoon: "下午",
-    evening: "晚上",
-    上午: "上午",
-    下午: "下午",
-    晚上: "晚上",
+    morning: PERIOD_MORNING,
+    afternoon: PERIOD_AFTERNOON,
+    evening: PERIOD_EVENING,
+    [PERIOD_MORNING]: PERIOD_MORNING,
+    [PERIOD_AFTERNOON]: PERIOD_AFTERNOON,
+    [PERIOD_EVENING]: PERIOD_EVENING,
     manual: "manual",
   };
 
   if (raw && aliases[raw]) {
     return aliases[raw];
   }
-  if (raw) {
-    return raw.slice(0, 32);
+  // Keep unknown custom labels (including already-decoded Chinese) when provided.
+  const original = (process.env.APPWRITE_CRON_PERIOD || "").trim();
+  if (original && aliases[original]) {
+    return aliases[original];
+  }
+  if (original) {
+    return original.slice(0, 32);
   }
 
   if (schedule === "33 1 * * *") {
-    return "上午";
+    return PERIOD_MORNING;
   }
   if (schedule === "33 7 * * *") {
-    return "下午";
+    return PERIOD_AFTERNOON;
   }
   if (schedule === "33 13 * * *") {
-    return "晚上";
+    return PERIOD_EVENING;
   }
 
   return "manual";
