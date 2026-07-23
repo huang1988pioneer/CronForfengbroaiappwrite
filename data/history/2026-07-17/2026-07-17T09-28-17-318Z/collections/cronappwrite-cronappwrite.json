@@ -1,0 +1,130 @@
+{
+  "id": "cronappwrite",
+  "name": "CronAppwrite",
+  "documentCount": 5,
+  "fetchedCount": 5,
+  "attributeCount": 4,
+  "createdAt": "2026-07-15T06:55:46.957+00:00",
+  "updatedAt": "2026-07-15T06:55:46.957+00:00",
+  "attributes": [
+    {
+      "key": "period",
+      "type": "string",
+      "status": "available",
+      "error": "",
+      "required": true,
+      "array": false,
+      "$createdAt": "2026-07-15T06:55:47.663+00:00",
+      "$updatedAt": "2026-07-15T06:55:47.851+00:00",
+      "size": 32,
+      "default": null,
+      "encrypt": false
+    },
+    {
+      "key": "note",
+      "type": "string",
+      "status": "available",
+      "error": "",
+      "required": false,
+      "array": false,
+      "$createdAt": "2026-07-15T06:55:47.934+00:00",
+      "$updatedAt": "2026-07-15T06:55:48.128+00:00",
+      "size": 255,
+      "default": null,
+      "encrypt": false
+    },
+    {
+      "key": "token",
+      "type": "string",
+      "status": "available",
+      "error": "",
+      "required": false,
+      "array": false,
+      "$createdAt": "2026-07-15T06:55:48.208+00:00",
+      "$updatedAt": "2026-07-15T06:55:48.383+00:00",
+      "size": 64,
+      "default": null,
+      "encrypt": false
+    },
+    {
+      "key": "source",
+      "type": "string",
+      "status": "available",
+      "error": "",
+      "required": false,
+      "array": false,
+      "$createdAt": "2026-07-15T06:55:49.578+00:00",
+      "$updatedAt": "2026-07-15T06:55:50.876+00:00",
+      "size": 64,
+      "default": null,
+      "encrypt": false
+    }
+  ],
+  "documents": [
+    {
+      "period": "上午",
+      "note": "上午隨機#7963de14 r3808 2026-07-15T06:55:51.641Z",
+      "token": "[REDACTED]",
+      "source": "CronForfengbroaiappwrite",
+      "$id": "6a572ef7bfc01486d46c",
+      "$sequence": "1",
+      "$createdAt": "2026-07-15T06:55:51.788+00:00",
+      "$updatedAt": "2026-07-15T06:55:51.788+00:00",
+      "$permissions": [],
+      "$databaseId": "6a073a0e0036f14c941f",
+      "$collectionId": "cronappwrite"
+    },
+    {
+      "period": "下午",
+      "note": "下午隨機#2149d0e4 r5941 2026-07-15T09:31:07.200Z",
+      "token": "[REDACTED]",
+      "source": "CronForfengbroaiappwrite",
+      "$id": "6a57535b4a57f995f51c",
+      "$sequence": "4",
+      "$createdAt": "2026-07-15T09:31:07.305+00:00",
+      "$updatedAt": "2026-07-15T09:31:07.305+00:00",
+      "$permissions": [],
+      "$databaseId": "6a073a0e0036f14c941f",
+      "$collectionId": "cronappwrite"
+    },
+    {
+      "period": "上午",
+      "note": "上午隨機#50f3ecae r3500 2026-07-16T04:41:04.253Z",
+      "token": "[REDACTED]",
+      "source": "CronForfengbroaiappwrite",
+      "$id": "6a5860e05a226d7d9cea",
+      "$sequence": "5",
+      "$createdAt": "2026-07-16T04:41:04.369+00:00",
+      "$updatedAt": "2026-07-16T04:41:04.369+00:00",
+      "$permissions": [],
+      "$databaseId": "6a073a0e0036f14c941f",
+      "$collectionId": "cronappwrite"
+    },
+    {
+      "period": "下午",
+      "note": "下午隨機#7a746a00 r2055 2026-07-16T09:36:14.561Z",
+      "token": "[REDACTED]",
+      "source": "CronForfengbroaiappwrite",
+      "$id": "6a58a60ea252850a2882",
+      "$sequence": "6",
+      "$createdAt": "2026-07-16T09:36:14.665+00:00",
+      "$updatedAt": "2026-07-16T09:36:14.665+00:00",
+      "$permissions": [],
+      "$databaseId": "6a073a0e0036f14c941f",
+      "$collectionId": "cronappwrite"
+    },
+    {
+      "period": "上午",
+      "note": "上午隨機#2d20352c r5081 2026-07-17T04:43:34.624Z",
+      "token": "[REDACTED]",
+      "source": "CronForfengbroaiappwrite",
+      "$id": "6a59b2f6b221829ad154",
+      "$sequence": "7",
+      "$createdAt": "2026-07-17T04:43:34.730+00:00",
+      "$updatedAt": "2026-07-17T04:43:34.730+00:00",
+      "$permissions": [],
+      "$databaseId": "6a073a0e0036f14c941f",
+      "$collectionId": "cronappwrite"
+    }
+  ]
+}

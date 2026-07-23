@@ -1,0 +1,17 @@
+{
+  "name": "cron-for-fengbro-ai-appwrite",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Hourly Appwrite database snapshot recorder for fengbroaiappwrite.",
+  "scripts": {
+    "snapshot": "node scripts/snapshot-appwrite.mjs",
+    "routine:cron": "node scripts/toggle-routine-cron.mjs",
+    "cronappwrite:ensure": "node scripts/ensure-cronappwrite-collection.mjs",
+    "cronappwrite:cron": "node scripts/toggle-cronappwrite.mjs",
+    "cronappwrite:clear": "node scripts/clear-cronappwrite.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

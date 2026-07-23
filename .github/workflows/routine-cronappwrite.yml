@@ -1,0 +1,83 @@
+name: CronAppwrite table
+
+on:
+  schedule:
+    # Taiwan (UTC+8): morning 09:33 add
+    - cron: "33 1 * * *"
+    # Taiwan (UTC+8): afternoon 15:33 add
+    - cron: "33 7 * * *"
+    # Taiwan (UTC+8): evening 21:33 remove
+    - cron: "33 13 * * *"
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "add or remove row on CronAppwrite table"
+        required: true
+        default: "add"
+        type: choice
+        options:
+          - add
+          - remove
+      period:
+        description: "period label for add (ignored on remove)"
+        required: false
+        default: "manual"
+        type: choice
+        options:
+          - manual
+          - morning
+          - afternoon
+          - evening
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cronappwrite-table
+  cancel-in-progress: false
+
+jobs:
+  toggle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Ensure CronAppwrite collection
+        env:
+          APPWRITE_ENDPOINT: ${{ secrets.APPWRITE_ENDPOINT }}
+          APPWRITE_PROJECT_ID: ${{ secrets.APPWRITE_PROJECT_ID }}
+          APPWRITE_DATABASE_ID: ${{ secrets.APPWRITE_DATABASE_ID }}
+          APPWRITE_API_KEY: ${{ secrets.APPWRITE_API_KEY }}
+          NEXT_PUBLIC_APPWRITE_ENDPOINT: ${{ secrets.NEXT_PUBLIC_APPWRITE_ENDPOINT }}
+          NEXT_PUBLIC_APPWRITE_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_APPWRITE_PROJECT_ID }}
+          NEXT_PUBLIC_APPWRITE_DATABASE_ID: ${{ secrets.NEXT_PUBLIC_APPWRITE_DATABASE_ID }}
+          NEXT_PUBLIC_APPWRITE_API_KEY: ${{ secrets.NEXT_PUBLIC_APPWRITE_API_KEY }}
+          APPWRITE_CRON_COLLECTION_NAME: CronAppwrite
+        run: npm run cronappwrite:ensure
+
+      - name: Toggle CronAppwrite table row
+        env:
+          APPWRITE_ENDPOINT: ${{ secrets.APPWRITE_ENDPOINT }}
+          APPWRITE_PROJECT_ID: ${{ secrets.APPWRITE_PROJECT_ID }}
+          APPWRITE_DATABASE_ID: ${{ secrets.APPWRITE_DATABASE_ID }}
+          APPWRITE_API_KEY: ${{ secrets.APPWRITE_API_KEY }}
+          NEXT_PUBLIC_APPWRITE_ENDPOINT: ${{ secrets.NEXT_PUBLIC_APPWRITE_ENDPOINT }}
+          NEXT_PUBLIC_APPWRITE_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_APPWRITE_PROJECT_ID }}
+          NEXT_PUBLIC_APPWRITE_DATABASE_ID: ${{ secrets.NEXT_PUBLIC_APPWRITE_DATABASE_ID }}
+          NEXT_PUBLIC_APPWRITE_API_KEY: ${{ secrets.NEXT_PUBLIC_APPWRITE_API_KEY }}
+          # Evening schedule removes one random row; morning/afternoon add one random row.
+          ROUTINE_CRON_ACTION: ${{ github.event.inputs.action || (github.event.schedule == '33 13 * * *' && 'remove' || 'add') }}
+          APPWRITE_CRON_SCHEDULE: ${{ github.event.schedule || '' }}
+          APPWRITE_CRON_PERIOD: ${{ github.event.inputs.period || '' }}
+          APPWRITE_CRON_COLLECTION_NAME: CronAppwrite
+          # ensure already ran in previous step
+          APPWRITE_CRON_AUTO_ENSURE: "0"
+        run: npm run cronappwrite:cron
