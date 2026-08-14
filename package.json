@@ -9,6 +9,7 @@
     "routine:cron": "node scripts/toggle-routine-cron.mjs",
     "cronappwrite:ensure": "node scripts/ensure-cronappwrite-collection.mjs",
     "cronappwrite:cron": "node scripts/toggle-cronappwrite.mjs",
+    "cronappwrite:cycle": "node scripts/run-cronappwrite-cycle.mjs",
     "cronappwrite:clear": "node scripts/clear-cronappwrite.mjs"
   },
   "engines": {

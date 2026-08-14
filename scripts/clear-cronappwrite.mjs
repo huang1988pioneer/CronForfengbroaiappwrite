@@ -18,6 +18,22 @@ const collectionName = process.env.APPWRITE_CRON_COLLECTION_NAME || "CronAppwrit
 const collectionIdEnv = process.env.APPWRITE_CRON_COLLECTION_ID || "";
 const autoEnsure = (process.env.APPWRITE_CRON_AUTO_ENSURE || "1") !== "0";
 const dryRun = (process.env.CLEAR_DRY_RUN || "0") === "1";
+const forceClear = (process.env.CLEAR_FORCE || "0") === "1";
+const clearEveryDays = Number.parseInt(process.env.CLEAR_EVERY_DAYS || "0", 10);
+const clearAnchorDate = process.env.CLEAR_ANCHOR_DATE || "1970-01-01";
+
+function isScheduledClearDay(now = new Date()) {
+  if (forceClear || clearEveryDays <= 0) return true;
+
+  const anchorMs = Date.parse(`${clearAnchorDate}T00:00:00Z`);
+  if (!Number.isFinite(anchorMs)) {
+    throw new Error(`CLEAR_ANCHOR_DATE must use YYYY-MM-DD format: ${clearAnchorDate}`);
+  }
+
+  const todayMs = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+  const elapsedDays = Math.floor((todayMs - anchorMs) / 86_400_000);
+  return elapsedDays >= 0 && elapsedDays % clearEveryDays === 0;
+}
 
 function requireEnv(primary, fallback) {
   const value = process.env[primary] || (fallback ? process.env[fallback] : undefined);
@@ -166,6 +182,11 @@ function runEnsure() {
 }
 
 async function main() {
+  if (!isScheduledClearDay()) {
+    console.log(`Today is not a scheduled clear day (every ${clearEveryDays} days from ${clearAnchorDate}); skipping.`);
+    return;
+  }
+
   if (dryRun) {
     console.log("[DRY RUN] No documents will actually be deleted.");
   }
