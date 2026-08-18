@@ -1,0 +1,143 @@
+{
+  "id": "cronappwrite",
+  "name": "CronAppwrite",
+  "documentCount": 6,
+  "fetchedCount": 6,
+  "attributeCount": 4,
+  "createdAt": "2026-07-15T06:55:46.957+00:00",
+  "updatedAt": "2026-07-25T15:01:38.760+00:00",
+  "attributes": [
+    {
+      "key": "period",
+      "type": "string",
+      "status": "available",
+      "error": "",
+      "required": true,
+      "array": false,
+      "$createdAt": "2026-07-15T06:55:47.663+00:00",
+      "$updatedAt": "2026-07-15T06:55:47.851+00:00",
+      "size": 32,
+      "default": null,
+      "encrypt": false
+    },
+    {
+      "key": "note",
+      "type": "string",
+      "status": "available",
+      "error": "",
+      "required": false,
+      "array": false,
+      "$createdAt": "2026-07-15T06:55:47.934+00:00",
+      "$updatedAt": "2026-07-15T06:55:48.128+00:00",
+      "size": 255,
+      "default": null,
+      "encrypt": false
+    },
+    {
+      "key": "token",
+      "type": "string",
+      "status": "available",
+      "error": "",
+      "required": false,
+      "array": false,
+      "$createdAt": "2026-07-15T06:55:48.208+00:00",
+      "$updatedAt": "2026-07-15T06:55:48.383+00:00",
+      "size": 64,
+      "default": null,
+      "encrypt": false
+    },
+    {
+      "key": "source",
+      "type": "string",
+      "status": "available",
+      "error": "",
+      "required": false,
+      "array": false,
+      "$createdAt": "2026-07-15T06:55:49.578+00:00",
+      "$updatedAt": "2026-07-15T06:55:50.876+00:00",
+      "size": 64,
+      "default": null,
+      "encrypt": false
+    }
+  ],
+  "documents": [
+    {
+      "period": "daily",
+      "note": "daily cycle #1 token=5bf7864e 2026-08-17T02:43:56.555Z",
+      "token": "[REDACTED]",
+      "source": "CronForfengbroaiappwrite",
+      "$id": "6a82756ca9f1c1715d4e",
+      "$sequence": "67",
+      "$createdAt": "2026-08-17T02:43:56.698+00:00",
+      "$updatedAt": "2026-08-17T02:43:56.698+00:00",
+      "$permissions": [],
+      "$databaseId": "6a073a0e0036f14c941f",
+      "$collectionId": "cronappwrite"
+    },
+    {
+      "period": "daily",
+      "note": "daily cycle #2 token=183b1c55 2026-08-17T02:46:56.839Z",
+      "token": "[REDACTED]",
+      "source": "CronForfengbroaiappwrite",
+      "$id": "6a827621c64c91d861de",
+      "$sequence": "68",
+      "$createdAt": "2026-08-17T02:46:57.815+00:00",
+      "$updatedAt": "2026-08-17T02:46:57.815+00:00",
+      "$permissions": [],
+      "$databaseId": "6a073a0e0036f14c941f",
+      "$collectionId": "cronappwrite"
+    },
+    {
+      "period": "daily",
+      "note": "daily cycle #3 token=a0ea2fe7 2026-08-17T02:49:58.031Z",
+      "token": "[REDACTED]",
+      "source": "CronForfengbroaiappwrite",
+      "$id": "6a8276d6f36cdc3e3833",
+      "$sequence": "69",
+      "$createdAt": "2026-08-17T02:49:58.998+00:00",
+      "$updatedAt": "2026-08-17T02:49:58.998+00:00",
+      "$permissions": [],
+      "$databaseId": "6a073a0e0036f14c941f",
+      "$collectionId": "cronappwrite"
+    },
+    {
+      "period": "daily",
+      "note": "daily cycle #1 token=7aed00e9 2026-08-18T02:38:10.492Z",
+      "token": "[REDACTED]",
+      "source": "CronForfengbroaiappwrite",
+      "$id": "6a83c5930b7edfa5ab48",
+      "$sequence": "70",
+      "$createdAt": "2026-08-18T02:38:11.048+00:00",
+      "$updatedAt": "2026-08-18T02:38:11.048+00:00",
+      "$permissions": [],
+      "$databaseId": "6a073a0e0036f14c941f",
+      "$collectionId": "cronappwrite"
+    },
+    {
+      "period": "daily",
+      "note": "daily cycle #2 token=8de34ba8 2026-08-18T02:41:11.188Z",
+      "token": "[REDACTED]",
+      "source": "CronForfengbroaiappwrite",
+      "$id": "6a83c647d2229e68603e",
+      "$sequence": "71",
+      "$createdAt": "2026-08-18T02:41:11.862+00:00",
+      "$updatedAt": "2026-08-18T02:41:11.862+00:00",
+      "$permissions": [],
+      "$databaseId": "6a073a0e0036f14c941f",
+      "$collectionId": "cronappwrite"
+    },
+    {
+      "period": "daily",
+      "note": "daily cycle #3 token=8f29e51d 2026-08-18T02:44:12.087Z",
+      "token": "[REDACTED]",
+      "source": "CronForfengbroaiappwrite",
+      "$id": "6a83c6fcc22fc2cfa281",
+      "$sequence": "72",
+      "$createdAt": "2026-08-18T02:44:12.797+00:00",
+      "$updatedAt": "2026-08-18T02:44:12.797+00:00",
+      "$permissions": [],
+      "$databaseId": "6a073a0e0036f14c941f",
+      "$collectionId": "cronappwrite"
+    }
+  ]
+}
