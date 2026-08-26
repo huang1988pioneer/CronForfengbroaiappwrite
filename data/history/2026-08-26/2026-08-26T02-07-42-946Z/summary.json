@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-07-27T20:02:34.843Z",
+  "generatedAt": "2026-08-26T02:07:42.946Z",
   "endpoint": "https://sgp.cloud.appwrite.io/v1",
   "projectId": "6a0727af003994657b32",
   "databaseId": "6a073a0e0036f14c941f",
   "totalCollections": 13,
-  "totalDocuments": 517,
+  "totalDocuments": 521,
   "historyMode": "full",
   "historyRetentionDays": 30,
   "collections": [
@@ -47,8 +47,8 @@
     {
       "id": "cronappwrite",
       "name": "CronAppwrite",
-      "documentCount": 5,
-      "fetchedCount": 5,
+      "documentCount": 9,
+      "fetchedCount": 9,
       "attributeCount": 4,
       "createdAt": "2026-07-15T06:55:46.957+00:00",
       "updatedAt": "2026-07-25T15:01:38.760+00:00"
