@@ -2,7 +2,8 @@ name: Appwrite hourly snapshot
 
 on:
   schedule:
-    - cron: "33 * * * *"
+    # GitHub Actions uses UTC; this is Taiwan time 08:33-20:33 every hour.
+    - cron: "33 0-12 * * *"
   workflow_dispatch:
 
 permissions:

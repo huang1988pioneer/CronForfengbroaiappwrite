@@ -15,7 +15,7 @@ The workflows also accept the corresponding `NEXT_PUBLIC_APPWRITE_*` secret name
 
 ## Hourly database snapshots
 
-`.github/workflows/appwrite-snapshot.yml` runs at minute 33 every hour. It saves collection metadata, attributes, document counts, and document data under `data/latest` and `data/history`. History retention defaults to 30 days and can be changed with `APPWRITE_HISTORY_RETENTION_DAYS`.
+`.github/workflows/appwrite-snapshot.yml` runs every hour at minute 33 from 08:33 through 20:33 Taiwan time (`33 0-12 * * *` in UTC). It saves collection metadata, attributes, document counts, and document data under `data/latest` and `data/history`. History retention defaults to 30 days and can be changed with `APPWRITE_HISTORY_RETENTION_DAYS`.
 
 Local command:
 
@@ -38,8 +38,9 @@ npm run snapshot
 
 | Taiwan time | UTC cron | Action |
 |--------------|----------|--------|
-| Every day at 08:33 | `33 0 * * *` | Check whether this is the three-day full-clear date |
+| Every day at 08:33 | `33 0 * * *` | Clear all `CronAppwrite` documents before the first run |
 | Every day at 09:33 | `33 1 * * *` | Run the daily three-write cycle |
+| Every day at 20:33 | `33 12 * * *` | Clear all `CronAppwrite` documents after the final run |
 
 The daily cycle:
 
@@ -47,7 +48,7 @@ The daily cycle:
 2. Counts the documents after all three additions.
 3. When the count is greater than 33, deletes 3 random documents immediately, waits 3 minutes, deletes 3, waits 3 minutes, and deletes the final 3.
 
-The full-clear schedule uses `2026-08-14` as the anchor date and clears every three days from that date. The workflow runs the check daily so the interval stays correct across month boundaries.
+The first and final daily runs force-clear every document in `CronAppwrite`. The workflow keeps the collection-creation step before the clear so a missing collection is recreated automatically.
 
 ### Local and manual commands
 

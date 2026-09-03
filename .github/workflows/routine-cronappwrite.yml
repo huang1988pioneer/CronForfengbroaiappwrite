@@ -2,10 +2,12 @@ name: CronAppwrite table
 
 on:
   schedule:
-    # Taiwan 08:33: check whether today is the three-day full-clear date.
+    # Taiwan 08:33: clear CronAppwrite before the day's first run.
     - cron: "33 0 * * *"
     # Taiwan 09:33: run the daily add/delete cycle.
     - cron: "33 1 * * *"
+    # Taiwan 20:33: clear CronAppwrite after the day's final run.
+    - cron: "33 12 * * *"
   workflow_dispatch:
     inputs:
       action:
@@ -73,11 +75,11 @@ jobs:
           APPWRITE_CRON_DELETE_BATCH_COUNT: "3"
         run: npm run cronappwrite:cycle
 
-      - name: Check three-day full clear
-        if: github.event.schedule == '33 0 * * *'
+      - name: Clear CronAppwrite at the first and last daily run
+        if: github.event.schedule == '33 0 * * *' || github.event.schedule == '33 12 * * *'
         env:
-          CLEAR_EVERY_DAYS: "3"
-          CLEAR_ANCHOR_DATE: "2026-08-14"
+          CLEAR_FORCE: "1"
+          APPWRITE_CRON_AUTO_ENSURE: "0"
         run: npm run cronappwrite:clear
 
       - name: Run manual single-row operation
