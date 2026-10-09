@@ -1,8 +1,8 @@
 {
   "id": "cronappwrite",
   "name": "CronAppwrite",
-  "documentCount": 3,
-  "fetchedCount": 3,
+  "documentCount": 0,
+  "fetchedCount": 0,
   "attributeCount": 4,
   "createdAt": "2026-07-15T06:55:46.957+00:00",
   "updatedAt": "2026-07-25T15:01:38.760+00:00",
@@ -60,45 +60,5 @@
       "encrypt": false
     }
   ],
-  "documents": [
-    {
-      "period": "daily",
-      "note": "daily cycle #1 token=ac500877 2026-10-08T07:53:27.402Z",
-      "token": "[REDACTED]",
-      "source": "CronForfengbroaiappwrite",
-      "$id": "6ac74bf8543f5a42b35d",
-      "$sequence": "145",
-      "$createdAt": "2026-10-08T07:53:28.347+00:00",
-      "$updatedAt": "2026-10-08T07:53:28.347+00:00",
-      "$permissions": [],
-      "$databaseId": "6a073a0e0036f14c941f",
-      "$collectionId": "cronappwrite"
-    },
-    {
-      "period": "daily",
-      "note": "daily cycle #2 token=6cb09175 2026-10-08T07:56:28.610Z",
-      "token": "[REDACTED]",
-      "source": "CronForfengbroaiappwrite",
-      "$id": "6ac74cada42ba8e6bfb4",
-      "$sequence": "146",
-      "$createdAt": "2026-10-08T07:56:29.674+00:00",
-      "$updatedAt": "2026-10-08T07:56:29.674+00:00",
-      "$permissions": [],
-      "$databaseId": "6a073a0e0036f14c941f",
-      "$collectionId": "cronappwrite"
-    },
-    {
-      "period": "daily",
-      "note": "daily cycle #3 token=39571ce4 2026-10-08T07:59:29.823Z",
-      "token": "[REDACTED]",
-      "source": "CronForfengbroaiappwrite",
-      "$id": "6ac74d621f88e1a2ffdc",
-      "$sequence": "147",
-      "$createdAt": "2026-10-08T07:59:30.130+00:00",
-      "$updatedAt": "2026-10-08T07:59:30.130+00:00",
-      "$permissions": [],
-      "$databaseId": "6a073a0e0036f14c941f",
-      "$collectionId": "cronappwrite"
-    }
-  ]
+  "documents": []
 }
