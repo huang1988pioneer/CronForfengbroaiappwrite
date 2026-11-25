@@ -9,6 +9,7 @@
   "attributes": [
     {
       "key": "name",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -22,6 +23,7 @@
     },
     {
       "key": "note",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -35,6 +37,7 @@
     },
     {
       "key": "lastdate1",
+      "description": "",
       "type": "datetime",
       "status": "available",
       "error": "",
@@ -47,6 +50,7 @@
     },
     {
       "key": "lastdate2",
+      "description": "",
       "type": "datetime",
       "status": "available",
       "error": "",
@@ -59,6 +63,7 @@
     },
     {
       "key": "lastdate3",
+      "description": "",
       "type": "datetime",
       "status": "available",
       "error": "",
@@ -71,6 +76,7 @@
     },
     {
       "key": "link",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -83,6 +89,7 @@
     },
     {
       "key": "photo",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",

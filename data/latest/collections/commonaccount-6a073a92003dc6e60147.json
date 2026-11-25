@@ -9,6 +9,7 @@
   "attributes": [
     {
       "key": "name",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -22,6 +23,7 @@
     },
     {
       "key": "site01",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -35,6 +37,7 @@
     },
     {
       "key": "site02",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -48,6 +51,7 @@
     },
     {
       "key": "site03",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -61,6 +65,7 @@
     },
     {
       "key": "site04",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -74,6 +79,7 @@
     },
     {
       "key": "site05",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -87,6 +93,7 @@
     },
     {
       "key": "site06",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -100,6 +107,7 @@
     },
     {
       "key": "site07",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -113,6 +121,7 @@
     },
     {
       "key": "site08",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -126,6 +135,7 @@
     },
     {
       "key": "site09",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -139,6 +149,7 @@
     },
     {
       "key": "site10",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -152,6 +163,7 @@
     },
     {
       "key": "site11",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -165,6 +177,7 @@
     },
     {
       "key": "site12",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -178,6 +191,7 @@
     },
     {
       "key": "site13",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -191,6 +205,7 @@
     },
     {
       "key": "site14",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -204,6 +219,7 @@
     },
     {
       "key": "site15",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -217,6 +233,7 @@
     },
     {
       "key": "site16",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -230,6 +247,7 @@
     },
     {
       "key": "site17",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -243,6 +261,7 @@
     },
     {
       "key": "site18",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -256,6 +275,7 @@
     },
     {
       "key": "site19",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -269,6 +289,7 @@
     },
     {
       "key": "site20",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -282,6 +303,7 @@
     },
     {
       "key": "site21",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -295,6 +317,7 @@
     },
     {
       "key": "site22",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -308,6 +331,7 @@
     },
     {
       "key": "site23",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -321,6 +345,7 @@
     },
     {
       "key": "site24",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -334,6 +359,7 @@
     },
     {
       "key": "site25",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -347,6 +373,7 @@
     },
     {
       "key": "site26",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -360,6 +387,7 @@
     },
     {
       "key": "site27",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -373,6 +401,7 @@
     },
     {
       "key": "site28",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -386,6 +415,7 @@
     },
     {
       "key": "site29",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -399,6 +429,7 @@
     },
     {
       "key": "site30",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -412,6 +443,7 @@
     },
     {
       "key": "site31",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -425,6 +457,7 @@
     },
     {
       "key": "site32",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -438,6 +471,7 @@
     },
     {
       "key": "site33",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -451,6 +485,7 @@
     },
     {
       "key": "site34",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -464,6 +499,7 @@
     },
     {
       "key": "site35",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -477,6 +513,7 @@
     },
     {
       "key": "site36",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -490,6 +527,7 @@
     },
     {
       "key": "site37",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -503,6 +541,7 @@
     },
     {
       "key": "note01",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -516,6 +555,7 @@
     },
     {
       "key": "note02",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -529,6 +569,7 @@
     },
     {
       "key": "note03",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -542,6 +583,7 @@
     },
     {
       "key": "note04",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -555,6 +597,7 @@
     },
     {
       "key": "note05",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -568,6 +611,7 @@
     },
     {
       "key": "note06",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -581,6 +625,7 @@
     },
     {
       "key": "note07",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -594,6 +639,7 @@
     },
     {
       "key": "note08",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -607,6 +653,7 @@
     },
     {
       "key": "note09",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -620,6 +667,7 @@
     },
     {
       "key": "note10",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -633,6 +681,7 @@
     },
     {
       "key": "note11",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -646,6 +695,7 @@
     },
     {
       "key": "note12",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -659,6 +709,7 @@
     },
     {
       "key": "note13",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -672,6 +723,7 @@
     },
     {
       "key": "note14",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -685,6 +737,7 @@
     },
     {
       "key": "note15",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -698,6 +751,7 @@
     },
     {
       "key": "note16",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -711,6 +765,7 @@
     },
     {
       "key": "note17",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -724,6 +779,7 @@
     },
     {
       "key": "note18",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -737,6 +793,7 @@
     },
     {
       "key": "note19",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -750,6 +807,7 @@
     },
     {
       "key": "note20",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -763,6 +821,7 @@
     },
     {
       "key": "note21",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -776,6 +835,7 @@
     },
     {
       "key": "note22",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -789,6 +849,7 @@
     },
     {
       "key": "note23",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -802,6 +863,7 @@
     },
     {
       "key": "note24",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -815,6 +877,7 @@
     },
     {
       "key": "note25",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -828,6 +891,7 @@
     },
     {
       "key": "note26",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -841,6 +905,7 @@
     },
     {
       "key": "note27",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -854,6 +919,7 @@
     },
     {
       "key": "note28",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -867,6 +933,7 @@
     },
     {
       "key": "note29",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -880,6 +947,7 @@
     },
     {
       "key": "note30",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -893,6 +961,7 @@
     },
     {
       "key": "note31",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -906,6 +975,7 @@
     },
     {
       "key": "note32",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -919,6 +989,7 @@
     },
     {
       "key": "note33",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -932,6 +1003,7 @@
     },
     {
       "key": "note34",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -945,6 +1017,7 @@
     },
     {
       "key": "note35",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -958,6 +1031,7 @@
     },
     {
       "key": "note36",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -971,6 +1045,7 @@
     },
     {
       "key": "note37",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",

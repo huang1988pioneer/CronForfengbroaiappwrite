@@ -9,6 +9,7 @@
   "attributes": [
     {
       "key": "name",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -22,6 +23,7 @@
     },
     {
       "key": "amount",
+      "description": "",
       "type": "integer",
       "status": "available",
       "error": "",
@@ -35,6 +37,7 @@
     },
     {
       "key": "price",
+      "description": "",
       "type": "integer",
       "status": "available",
       "error": "",
@@ -48,6 +51,7 @@
     },
     {
       "key": "shop",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -61,6 +65,7 @@
     },
     {
       "key": "todate",
+      "description": "",
       "type": "datetime",
       "status": "available",
       "error": "",
@@ -73,6 +78,7 @@
     },
     {
       "key": "photo",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -85,6 +91,7 @@
     },
     {
       "key": "photohash",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",

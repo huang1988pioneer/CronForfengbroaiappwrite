@@ -9,6 +9,7 @@
   "attributes": [
     {
       "key": "title",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -22,6 +23,7 @@
     },
     {
       "key": "content",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -35,6 +37,7 @@
     },
     {
       "key": "category",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -48,6 +51,7 @@
     },
     {
       "key": "ref",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -61,6 +65,7 @@
     },
     {
       "key": "newDate",
+      "description": "",
       "type": "datetime",
       "status": "available",
       "error": "",
@@ -73,6 +78,7 @@
     },
     {
       "key": "url1",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -85,6 +91,7 @@
     },
     {
       "key": "url2",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -97,6 +104,7 @@
     },
     {
       "key": "url3",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -109,6 +117,7 @@
     },
     {
       "key": "file1",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -122,6 +131,7 @@
     },
     {
       "key": "file1name",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -135,6 +145,7 @@
     },
     {
       "key": "file1type",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -148,6 +159,7 @@
     },
     {
       "key": "file2",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -161,6 +173,7 @@
     },
     {
       "key": "file2name",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -174,6 +187,7 @@
     },
     {
       "key": "file2type",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -187,6 +201,7 @@
     },
     {
       "key": "file3",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -200,6 +215,7 @@
     },
     {
       "key": "file3name",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -213,6 +229,7 @@
     },
     {
       "key": "file3type",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",

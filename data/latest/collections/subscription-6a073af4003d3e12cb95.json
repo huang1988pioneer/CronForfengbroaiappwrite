@@ -9,6 +9,7 @@
   "attributes": [
     {
       "key": "name",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -22,6 +23,7 @@
     },
     {
       "key": "site",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -34,6 +36,7 @@
     },
     {
       "key": "price",
+      "description": "",
       "type": "integer",
       "status": "available",
       "error": "",
@@ -47,6 +50,7 @@
     },
     {
       "key": "nextdate",
+      "description": "",
       "type": "datetime",
       "status": "available",
       "error": "",
@@ -59,6 +63,7 @@
     },
     {
       "key": "note",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -72,6 +77,7 @@
     },
     {
       "key": "account",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -85,6 +91,7 @@
     },
     {
       "key": "currency",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -98,6 +105,7 @@
     },
     {
       "key": "continue",
+      "description": "",
       "type": "boolean",
       "status": "available",
       "error": "",
@@ -109,6 +117,7 @@
     },
     {
       "key": "category",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -122,6 +131,7 @@
     },
     {
       "key": "purpose",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -135,6 +145,7 @@
     },
     {
       "key": "usageFrequency",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -148,6 +159,7 @@
     },
     {
       "key": "friendliness",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -161,6 +173,7 @@
     },
     {
       "key": "alternative",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -174,6 +187,7 @@
     },
     {
       "key": "retentionRecommendation",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -187,6 +201,7 @@
     },
     {
       "key": "archived",
+      "description": "",
       "type": "boolean",
       "status": "available",
       "error": "",

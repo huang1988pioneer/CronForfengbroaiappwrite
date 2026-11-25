@@ -9,6 +9,7 @@
   "attributes": [
     {
       "key": "name",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -22,6 +23,7 @@
     },
     {
       "key": "deposit",
+      "description": "",
       "type": "integer",
       "status": "available",
       "error": "",
@@ -35,6 +37,7 @@
     },
     {
       "key": "site",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -47,6 +50,7 @@
     },
     {
       "key": "address",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -60,6 +64,7 @@
     },
     {
       "key": "withdrawals",
+      "description": "",
       "type": "integer",
       "status": "available",
       "error": "",
@@ -73,6 +78,7 @@
     },
     {
       "key": "transfer",
+      "description": "",
       "type": "integer",
       "status": "available",
       "error": "",
@@ -86,6 +92,7 @@
     },
     {
       "key": "activity",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -98,6 +105,7 @@
     },
     {
       "key": "card",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -111,6 +119,7 @@
     },
     {
       "key": "account",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",

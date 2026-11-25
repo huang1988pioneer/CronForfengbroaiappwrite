@@ -9,6 +9,7 @@
   "attributes": [
     {
       "key": "source",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -22,6 +23,7 @@
     },
     {
       "key": "snapshotKey",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -35,6 +37,7 @@
     },
     {
       "key": "productId",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -48,6 +51,7 @@
     },
     {
       "key": "brand",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -61,6 +65,7 @@
     },
     {
       "key": "name",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -74,6 +79,7 @@
     },
     {
       "key": "sourceUrl",
+      "description": "",
       "type": "string",
       "status": "available",
       "error": "",
@@ -86,6 +92,7 @@
     },
     {
       "key": "landtopPrice",
+      "description": "",
       "type": "integer",
       "status": "available",
       "error": "",
@@ -99,6 +106,7 @@
     },
     {
       "key": "suggestedPrice",
+      "description": "",
       "type": "integer",
       "status": "available",
       "error": "",
@@ -112,6 +120,7 @@
     },
     {
       "key": "snapshotDate",
+      "description": "",
       "type": "datetime",
       "status": "available",
       "error": "",
